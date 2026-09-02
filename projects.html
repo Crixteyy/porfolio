@@ -1,0 +1,762 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Work | Cristy Jane</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Font Awesome -->
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    >
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* ==============================
+           PROJECT PAGE
+        ============================== */
+
+        .projects-page {
+            min-height: 100vh;
+            padding: 140px 8% 80px;
+            background: #f8f9fc;
+        }
+
+        .projects-header {
+            max-width: 800px;
+            margin: 0 auto 60px;
+            text-align: center;
+        }
+
+        .projects-header .section-label {
+            display: inline-block;
+            margin-bottom: 15px;
+            color: #7657e8;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        .projects-header h1 {
+            margin-bottom: 18px;
+            color: #171a2b;
+            font-size: clamp(38px, 5vw, 60px);
+            line-height: 1.1;
+        }
+
+        .projects-header h1 span {
+            color: #7657e8;
+        }
+
+        .projects-header p {
+            max-width: 650px;
+            margin: auto;
+            color: #686b7c;
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+
+        /* ==============================
+           PROJECT FILTERS
+        ============================== */
+
+        .project-filters {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 12px;
+            margin-bottom: 45px;
+        }
+
+        .filter-btn {
+            padding: 11px 20px;
+            border: 1px solid #e2e3eb;
+            border-radius: 50px;
+            background: #ffffff;
+            color: #55586a;
+            font-family: inherit;
+            font-size: 14px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: 0.3s ease;
+        }
+
+        .filter-btn:hover,
+        .filter-btn.active {
+            border-color: #7657e8;
+            background: #7657e8;
+            color: #ffffff;
+        }
+
+
+        /* ==============================
+           PROJECT GRID
+        ============================== */
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            max-width: 1150px;
+            margin: auto;
+        }
+
+
+        /* ==============================
+           PROJECT CARD
+        ============================== */
+
+        .work-card {
+            overflow: hidden;
+            border: 1px solid #e9e9f0;
+            border-radius: 22px;
+            background: #ffffff;
+            box-shadow: 0 10px 35px rgba(25, 28, 50, 0.06);
+            transition: 0.35s ease;
+        }
+
+        .work-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 45px rgba(25, 28, 50, 0.12);
+        }
+
+
+        /* ==============================
+           PROJECT IMAGE
+        ============================== */
+
+        .work-image {
+            position: relative;
+            height: 300px;
+            overflow: hidden;
+            background: #eeeeF5;
+        }
+
+        .work-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: 0.5s ease;
+        }
+
+        .work-card:hover .work-image img {
+            transform: scale(1.05);
+        }
+
+        .work-category {
+            position: absolute;
+            top: 18px;
+            left: 18px;
+            padding: 8px 13px;
+            border-radius: 50px;
+            background: rgba(255, 255, 255, 0.92);
+            color: #7657e8;
+            font-size: 12px;
+            font-weight: 700;
+            backdrop-filter: blur(8px);
+        }
+
+
+        /* ==============================
+           PROJECT CONTENT
+        ============================== */
+
+        .work-content {
+            padding: 28px;
+        }
+
+        .work-content h2 {
+            margin-bottom: 12px;
+            color: #171a2b;
+            font-size: 23px;
+        }
+
+        .work-content p {
+            margin-bottom: 20px;
+            color: #686b7c;
+            font-size: 14px;
+            line-height: 1.8;
+        }
+
+
+        /* ==============================
+           TECHNOLOGIES
+        ============================== */
+
+        .work-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+
+        .work-tags span {
+            padding: 7px 11px;
+            border-radius: 7px;
+            background: #f2efff;
+            color: #7657e8;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+
+        /* ==============================
+           PROJECT LINKS
+        ============================== */
+
+        .work-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .work-links a {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            color: #171a2b;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .work-links a:hover {
+            color: #7657e8;
+        }
+
+        .work-links .primary-link {
+            padding: 11px 17px;
+            border-radius: 9px;
+            background: #7657e8;
+            color: #ffffff;
+        }
+
+        .work-links .primary-link:hover {
+            background: #6344d3;
+            color: #ffffff;
+        }
+
+
+        /* ==============================
+           BACK HOME
+        ============================== */
+
+        .back-home {
+            display: flex;
+            justify-content: center;
+            margin-top: 70px;
+        }
+
+        .back-home a {
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            color: #55586a;
+            font-size: 14px;
+            font-weight: 600;
+            text-decoration: none;
+            transition: 0.3s ease;
+        }
+
+        .back-home a:hover {
+            color: #7657e8;
+        }
+
+
+        /* ==============================
+           FILTER ANIMATION
+        ============================== */
+
+        .work-card.hide {
+            display: none;
+        }
+
+
+        /* ==============================
+           RESPONSIVE
+        ============================== */
+
+        @media (max-width: 800px) {
+
+            .projects-page {
+                padding: 120px 5% 60px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .work-image {
+                height: 260px;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            .projects-header {
+                margin-bottom: 40px;
+            }
+
+            .projects-header h1 {
+                font-size: 38px;
+            }
+
+            .project-filters {
+                gap: 8px;
+            }
+
+            .filter-btn {
+                padding: 9px 14px;
+                font-size: 12px;
+            }
+
+            .work-content {
+                padding: 22px;
+            }
+
+            .work-links {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+    <!-- ==============================
+         NAVIGATION
+    ============================== -->
+
+    <header class="header">
+
+        <a href="index.html" class="logo">
+            CJ<span>.</span>
+        </a>
+
+        <nav class="navbar">
+
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#skills">Skills</a>
+            <a href="projects.html" class="active">Projects</a>
+            <a href="index.html#education">Education</a>
+            <a href="index.html#contact">Contact</a>
+
+        </nav>
+
+    </header>
+
+
+
+    <!-- ==============================
+         PROJECTS PAGE
+    ============================== -->
+
+    <main class="projects-page">
+
+
+        <!-- PAGE INTRO -->
+
+        <section class="projects-header">
+
+            <span class="section-label">
+                Portfolio
+            </span>
+
+            <h1>
+                My <span>Work</span>
+            </h1>
+
+            <p>
+                Here are some of the projects and creative works I have
+                developed throughout my journey as a Computer Science
+                graduate. Each project represents my skills, creativity,
+                and continuous learning.
+            </p>
+
+        </section>
+
+
+
+        <!-- ==============================
+             FILTER BUTTONS
+        ============================== -->
+
+        <div class="project-filters">
+
+            <button class="filter-btn active" data-filter="all">
+                All
+            </button>
+
+            <button class="filter-btn" data-filter="web">
+                Web Development
+            </button>
+
+            <button class="filter-btn" data-filter="ai">
+                AI & Research
+            </button>
+
+            <button class="filter-btn" data-filter="design">
+                Graphic Design
+            </button>
+
+        </div>
+
+
+
+        <!-- ==============================
+             PROJECTS
+        ============================== -->
+
+        <section class="projects-grid">
+
+
+            <!-- PROJECT 1 -->
+
+            <article class="work-card" data-category="web">
+
+                <div class="work-image">
+
+                    <img
+                        src="iMAGES/Screenshot 2026-09-02 122420.png"
+                        alt="SolebyCristy Website"
+                    >
+
+                    <span class="work-category">
+                        Web Development
+                    </span>
+
+                </div>
+
+
+                <div class="work-content">
+
+                    <h2>
+                        SolebyCristy
+                    </h2>
+
+                    <p>
+                        A modern and responsive shoe store website
+                        designed to provide customers with a clean,
+                        simple, and engaging online shopping experience.
+                    </p>
+
+
+                    <div class="work-tags">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>Responsive Design</span>
+
+                    </div>
+
+
+                    <div class="work-links">
+
+                        <a href="iMAGES/SolebyCristy - Google Chrome 2024-11-04 18-29-06.mp4" class="primary-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            Live Demo
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-github"></i>
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 2 -->
+
+            <article class="work-card" data-category="ai">
+
+                <div class="work-image">
+
+                    <img
+                        src="iMAGES/rice.webp"
+                        alt="Rice Leaf Classification"
+                    >
+
+                    <span class="work-category">
+                        AI & Research
+                    </span>
+
+                </div>
+
+
+                <div class="work-content">
+
+                    <h2>
+                        Rice Leaf Classification
+                    </h2>
+
+                    <p>
+                        A deep learning research project focused on
+                        classifying rice leaf images using CNN
+                        architectures while addressing class imbalance
+                        in the dataset.
+                    </p>
+
+
+                    <div class="work-tags">
+
+                        <span>Python</span>
+                        <span>Deep Learning</span>
+                        <span>CNN</span>
+                        <span>VGG16</span>
+                        <span>EfficientNet</span>
+
+                    </div>
+
+
+                    <div class="work-links">
+
+                        <a href="Thesis_Aniñon_Landazabal (2).pdf" class="primary-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            View Project
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-github"></i>
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 3 -->
+
+            <article class="work-card" data-category="design">
+
+                <div class="work-image">
+
+                    <img
+                        src="iMAGES/picture.png"
+                        alt="Graphic Design Portfolio"
+                    >
+
+                    <span class="work-category">
+                        Graphic Design
+                    </span>
+
+                </div>
+
+
+                <div class="work-content">
+
+                    <h2>
+                        Graphic Design Collection
+                    </h2>
+
+                    <p>
+                        A collection of creative graphic design works
+                        focused on visual communication, digital content,
+                        branding, and social media graphics.
+                    </p>
+
+
+                    <div class="work-tags">
+
+                        <span>Graphic Design</span>
+                        <span>Canva</span>
+                        <span>Photoshop</span>
+                        <span>Visual Design</span>
+
+                    </div>
+
+
+                    <div class="work-links">
+
+                        <a href="#" class="primary-link">
+                            <i class="fa-solid fa-images"></i>
+                            View Designs
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+
+            <!-- PROJECT 4 -->
+
+            <article class="work-card" data-category="web">
+
+                <div class="work-image">
+
+                    <img
+                        src="images/project4.jpg"
+                        alt="Web Development Project"
+                    >
+
+                    <span class="work-category">
+                        Web Development
+                    </span>
+
+                </div>
+
+
+                <div class="work-content">
+
+                    <h2>
+                        Web Application
+                    </h2>
+
+                    <p>
+                        A web-based application developed to demonstrate
+                        practical skills in user interface design,
+                        frontend development, and database integration.
+                    </p>
+
+
+                    <div class="work-tags">
+
+                        <span>HTML</span>
+                        <span>CSS</span>
+                        <span>JavaScript</span>
+                        <span>PHP</span>
+                        <span>MySQL</span>
+
+                    </div>
+
+
+                    <div class="work-links">
+
+                        <a href="#" class="primary-link">
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            View Project
+                        </a>
+
+                        <a href="#">
+                            <i class="fa-brands fa-github"></i>
+                            GitHub
+                        </a>
+
+                    </div>
+
+                </div>
+
+            </article>
+
+
+        </section>
+
+
+
+        <!-- BACK TO HOME -->
+
+        <div class="back-home">
+
+            <a href="index.html">
+
+                <i class="fa-solid fa-arrow-left"></i>
+
+                Back to Home
+
+            </a>
+
+        </div>
+
+
+    </main>
+
+
+
+    <!-- ==============================
+         JAVASCRIPT
+    ============================== -->
+
+    <script>
+
+        const filterButtons =
+            document.querySelectorAll(".filter-btn");
+
+        const projectCards =
+            document.querySelectorAll(".work-card");
+
+
+        filterButtons.forEach(button => {
+
+            button.addEventListener("click", () => {
+
+                // Remove active state
+                filterButtons.forEach(btn => {
+                    btn.classList.remove("active");
+                });
+
+                // Add active state
+                button.classList.add("active");
+
+
+                const filter =
+                    button.getAttribute("data-filter");
+
+
+                projectCards.forEach(card => {
+
+                    const category =
+                        card.getAttribute("data-category");
+
+
+                    if (
+                        filter === "all" ||
+                        category === filter
+                    ) {
+
+                        card.classList.remove("hide");
+
+                    } else {
+
+                        card.classList.add("hide");
+
+                    }
+
+                });
+
+            });
+
+        });
+
+    </script>
+
+
+</body>
+
+</html>
